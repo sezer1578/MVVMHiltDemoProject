@@ -9,6 +9,6 @@ It is a contacts application where you can add a new person, update the person y
 + Kotlin Coroutines
 + Room Database
 + Fragment
-+ Navigation Componenets
++ Navigation Components
 + Repository
 + Clean Architecture
