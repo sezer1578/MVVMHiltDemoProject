@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="toolBarBaslikDetail"
+            type="String" />
+
+        <variable
+            name="detailFragment"
+            type="com.ozaltun.rehberapp.presentation.ui.fragment.DetailFragment" />
+
+        <variable
+            name="person"
+            type="com.ozaltun.rehberapp.data.model.Person" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.ui.fragment.DetailFragment">
+
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/materialToolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="@{toolBarBaslikDetail}" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="124dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/materialToolbar">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtxName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{person.personName}"
+                android:hint="Enter name" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtxNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{person.personNumber}"
+                android:hint="Enter number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnUpdate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="24dp"
+            android:onClick="@{()-> detailFragment.btnUpdate(person.personId,edtxName.getText().toString(),edtxNumber.getText().toString())}"
+            android:text="Guncelle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
